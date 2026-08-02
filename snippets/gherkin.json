@@ -1,0 +1,73 @@
+{
+  "Feature": {
+    "prefix": "feature",
+    "body": [
+      "Feature: ${1:feature name}",
+      "  ${2:As a} ${3:role}",
+      "  ${4:I want} ${5:capability}",
+      "  ${6:So that} ${7:benefit}",
+      "",
+      "  Scenario: ${8:scenario name}",
+      "    Given ${9:a precondition}",
+      "    When ${10:an action occurs}",
+      "    Then ${11:an outcome is expected}"
+    ],
+    "description": "Full feature skeleton with a scenario"
+  },
+  "Scenario": {
+    "prefix": "scenario",
+    "body": [
+      "Scenario: ${1:scenario name}",
+      "  Given ${2:a precondition}",
+      "  When ${3:an action occurs}",
+      "  Then ${4:an outcome is expected}"
+    ],
+    "description": "Given/When/Then scenario"
+  },
+  "Scenario Outline": {
+    "prefix": "outline",
+    "body": [
+      "Scenario Outline: ${1:scenario name}",
+      "  Given ${2:a precondition with <param>}",
+      "  When ${3:an action with <param>}",
+      "  Then ${4:an outcome <result>}",
+      "",
+      "  Examples:",
+      "    | param   | result   |",
+      "    | ${5:val1} | ${6:res1} |"
+    ],
+    "description": "Scenario Outline with Examples table"
+  },
+  "Background": {
+    "prefix": "background",
+    "body": [
+      "Background:",
+      "  Given ${1:a shared precondition}"
+    ],
+    "description": "Background block"
+  },
+  "Given": {
+    "prefix": "given",
+    "body": ["Given ${1:a precondition}"],
+    "description": "Given step"
+  },
+  "When": {
+    "prefix": "when",
+    "body": ["When ${1:an action occurs}"],
+    "description": "When step"
+  },
+  "Then": {
+    "prefix": "then",
+    "body": ["Then ${1:an outcome is expected}"],
+    "description": "Then step"
+  },
+  "Examples": {
+    "prefix": "examples",
+    "body": [
+      "Examples:",
+      "  | ${1:header1} | ${2:header2} |",
+      "  | ${3:value1}  | ${4:value2}  |"
+    ],
+    "description": "Examples data table"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Gherkin",
+  "scopeName": "source.gherkin",
+  "patterns": [
+    { "include": "#language-header" },
+    { "include": "#comments" },
+    { "include": "#tags" },
+    { "include": "#feature" },
+    { "include": "#structure" },
+    { "include": "#steps" },
+    { "include": "#docstring-quotes" },
+    { "include": "#docstring-backtick" },
+    { "include": "#table" }
+  ],
+  "repository": {
+    "language-header": {
+      "match": "^\\s*(#\\s*language\\s*:\\s*)([a-zA-Z-]+)\\s*$",
+      "captures": {
+        "1": { "name": "comment.line.number-sign.gherkin" },
+        "2": { "name": "constant.language.gherkin" }
+      }
+    },
+    "comments": {
+      "match": "^\\s*#.*$",
+      "name": "comment.line.number-sign.gherkin"
+    },
+    "tags": {
+      "match": "(@[^\\s@]+)",
+      "name": "entity.name.tag.gherkin"
+    },
+    "feature": {
+      "match": "^\\s*(Feature|Funcionalidade|Característica|Caracteristica|Ability|Business Need)(:)(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.feature.gherkin" },
+        "2": { "name": "punctuation.separator.gherkin" },
+        "3": { "name": "entity.name.section.gherkin" }
+      }
+    },
+    "structure": {
+      "match": "^\\s*(Background|Contexto|Cenário|Cenario|Scenario Outline|Esquema do Cenário|Esquema do Cenario|Scenario|Example|Exemplo|Exemplos|Examples|Rule|Regra)(:)(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.structure.gherkin" },
+        "2": { "name": "punctuation.separator.gherkin" },
+        "3": { "name": "entity.name.function.gherkin" }
+      }
+    },
+    "steps": {
+      "match": "^\\s*(Given|When|Then|And|But|Dado|Dada|Dados|Dadas|Quando|Então|Entao|E|Mas|\\*)\\b(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.step.gherkin" },
+        "2": { "name": "string.unquoted.step.gherkin" }
+      }
+    },
+    "docstring-quotes": {
+      "begin": "^\\s*(\"\"\")",
+      "end": "(\"\"\")",
+      "beginCaptures": { "1": { "name": "punctuation.definition.string.begin.gherkin" } },
+      "endCaptures": { "1": { "name": "punctuation.definition.string.end.gherkin" } },
+      "name": "string.quoted.docstring.gherkin"
+    },
+    "docstring-backtick": {
+      "begin": "^\\s*(```)",
+      "end": "(```)",
+      "beginCaptures": { "1": { "name": "punctuation.definition.string.begin.gherkin" } },
+      "endCaptures": { "1": { "name": "punctuation.definition.string.end.gherkin" } },
+      "name": "string.quoted.docstring.gherkin"
+    },
+    "table": {
+      "match": "^\\s*(\\|.*\\|)\\s*$",
+      "captures": {
+        "1": { "name": "markup.other.table.gherkin" }
+      }
+    }
+  }
+}
