@@ -109,7 +109,7 @@
     "package": "vsce package"
   },
   "dependencies": {
-    "@cucumber/gherkin": "^41.0.0",
+    "@cucumber/gherkin": "^42.0.0",
     "@cucumber/messages": "^34.0.1"
   },
   "devDependencies": {
