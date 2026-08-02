@@ -1,0 +1,124 @@
+:root {
+  --given: #4ec9b0;
+  --when: #569cd6;
+  --then: #c586c0;
+  --conj: #858585;
+  --tag: #d7ba7d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: var(--vscode-font-family, system-ui, sans-serif);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+}
+
+#empty {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  color: var(--vscode-descriptionForeground);
+}
+
+.feature-header { margin-bottom: 20px; }
+
+.feature-title {
+  font-size: 22px;
+  margin: 4px 0 8px;
+  font-weight: 600;
+}
+
+.feature-description {
+  color: var(--vscode-descriptionForeground);
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+
+.tag {
+  color: var(--tag);
+  background: color-mix(in srgb, var(--tag) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tag) 40%, transparent);
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-size: 11px;
+}
+
+.card {
+  border: 1px solid var(--vscode-panel-border, rgba(128,128,128,.3));
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  background: var(--vscode-editorWidget-background, rgba(128,128,128,.05));
+}
+
+.card.background { border-left: 3px solid var(--conj); }
+.card.scenario { border-left: 3px solid var(--when); }
+
+.card-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+
+.description {
+  color: var(--vscode-descriptionForeground);
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+
+.steps { display: flex; flex-direction: column; gap: 3px; margin-top: 8px; }
+
+.step { padding: 2px 0; }
+.step .kw { font-weight: 600; }
+.step.given .kw { color: var(--given); }
+.step.when .kw { color: var(--when); }
+.step.then .kw { color: var(--then); }
+.step.conj .kw { color: var(--conj); }
+
+.docstring {
+  margin: 6px 0 6px 18px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--vscode-textCodeBlock-background, rgba(128,128,128,.12));
+  white-space: pre-wrap;
+  font-family: var(--vscode-editor-font-family, monospace);
+}
+
+.data-table, .examples table {
+  border-collapse: collapse;
+  margin: 8px 0 4px 18px;
+  font-family: var(--vscode-editor-font-family, monospace);
+}
+
+.data-table th, .data-table td,
+.examples th, .examples td {
+  border: 1px solid var(--vscode-panel-border, rgba(128,128,128,.4));
+  padding: 4px 10px;
+  text-align: left;
+}
+
+.header-row th, .examples .header-row th {
+  background: color-mix(in srgb, var(--when) 18%, transparent);
+  font-weight: 600;
+}
+
+.examples-head { margin: 10px 0 2px; font-weight: 600; color: var(--then); }
+
+.rule {
+  border-left: 3px solid var(--tag);
+  padding-left: 14px;
+  margin: 14px 0;
+}
+.rule-title { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+
+.parse-error {
+  border: 1px solid var(--vscode-inputValidation-errorBorder, #be1100);
+  background: var(--vscode-inputValidation-errorBackground, rgba(190,17,0,.1));
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.parse-error pre { white-space: pre-wrap; margin: 8px 0 0; }
