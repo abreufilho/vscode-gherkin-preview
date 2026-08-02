@@ -1,0 +1,130 @@
+{
+  "name": "gherkin-preview",
+  "displayName": "Gherkin Preview",
+  "description": "Read .feature files as formatted scenarios, with tags, backgrounds, rules, data tables and examples.",
+  "version": "1.0.0",
+  "publisher": "abreufilho",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Antonio Abreu Filho",
+    "url": "https://abreufilho.com.br"
+  },
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#172554",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abreufilho/vscode-gherkin-preview"
+  },
+  "homepage": "https://github.com/abreufilho/vscode-gherkin-preview",
+  "bugs": {
+    "url": "https://github.com/abreufilho/vscode-gherkin-preview/issues"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Testing",
+    "Snippets"
+  ],
+  "keywords": [
+    "gherkin",
+    "cucumber",
+    "feature",
+    "bdd",
+    "preview"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "gherkin",
+        "aliases": [
+          "Gherkin",
+          "Cucumber",
+          "feature"
+        ],
+        "extensions": [
+          ".feature"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gherkin",
+        "scopeName": "source.gherkin",
+        "path": "./syntaxes/gherkin.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "gherkin",
+        "path": "./snippets/gherkin.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "gherkin.preview",
+        "title": "Gherkin: Open Preview",
+        "icon": "$(open-preview)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "gherkin.preview",
+        "key": "ctrl+shift+m",
+        "when": "editorLangId == gherkin"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "gherkin.preview",
+          "when": "editorLangId == gherkin",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "gherkin.preview",
+          "when": "resourceExtname == .feature",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format:check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\" \"scripts/*.mjs\" \"*.json\"",
+    "test": "npm run typecheck && esbuild test/*.test.ts --bundle --platform=node --format=cjs --outdir=out/test --log-level=warning && node --test out/test/*.test.js",
+    "vscode:prepublish": "npm run build",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "@cucumber/gherkin": "^41.0.0",
+    "@cucumber/messages": "^34.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.1.2",
+    "@types/vscode": "1.80",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.65.0"
+  },
+  "overrides": {
+    "encoding-sniffer": "1.0.2"
+  }
+}
