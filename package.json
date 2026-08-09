@@ -110,7 +110,7 @@
   },
   "dependencies": {
     "@cucumber/gherkin": "^42.0.0",
-    "@cucumber/messages": "^34.0.1"
+    "@cucumber/messages": "^34.2.1"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
